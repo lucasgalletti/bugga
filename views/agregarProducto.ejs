@@ -1,0 +1,40 @@
+
+<%- include('./partials/head', {title: 'Agregando Producto'}) %>
+
+
+<%- include('./partials/headerNavbar') %>
+
+<main>
+    <p>Alta de Producto</p>
+    <form action="/products" class="altaProd" method="POST" enctype="multipart/form-data">
+        
+        <label for="name">Título del Libro</label>
+        <input type="text" id="name" name="name" placeholder="Ej: The Lord of the Rings" required minlength="2">
+        
+        <label for="autor">Autor</label>
+        <input type="text" id="autor" name="autor" placeholder="Ej: J.R.Tolkien" required minlength="2">
+        
+        <label for="category">Categoría</label>
+        <select name="category" id="category" required minlength="2">
+            <option value="">Elegí</option>
+            <option value="Ciencia-Ficcion">Ciencia Ficción</option>
+            <option value="Aventuras">Aventuras</option>
+            <option value="Libreria">Librería</option>
+        </select>        
+        
+        <label for="price">Precio</label>
+        <input type="text" id="price" name="price" placeholder="Ej:$150" required minlength="2">
+        
+        <label for="Sinopsis">Sinopsis</label>
+        <textarea name="sinopsis" id="Sinopsis" required minlength="2"></textarea>
+        
+        <label for="file">Seleccione una imágen</label>
+        <input type="file" name="bookImg" id="file" class="imagen">
+        
+        <button action="/" type="submit" class="buy-now-button">Guardar producto</button>
+    </form>
+
+</main>
+
+
+<%- include('./partials/footer') %>
