@@ -21,7 +21,10 @@ const validateLogin = [
 
 
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/register', uploadProfImg.single('registerImg'), validateRegister, usersController.create);
+router.post('/register', uploadProfImg.single('registerImg'), validateRegister, usersController.storeRegister);
+
+router.get('/create', usersController.create);
+router.post('/create', uploadProfImg.single('registerImg'), validateRegister, usersController.store);
 
 router.get('/admin', usersController.list);
 router.get('/search', usersController.search);

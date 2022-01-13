@@ -39,7 +39,7 @@ const usersController = {
         res.render('register', {interests});
     },
 
-    create: (req, res) => {
+    storeRegister: (req, res) => {
         const errors = validationResult(req);
 
         if (errors.isEmpty()){
@@ -66,6 +66,38 @@ const usersController = {
         }
     },
 
+    create: (req,res) => {
+
+        db.Usuarios.findByPk(req.params.id)
+            .then(function(user){
+                res.render('agregarUsuario', {user})
+        })    
+        
+        .catch(error=>{
+            console.log(error);
+                res.send(500);
+        })
+    },
+
+    store: (req,res) => {
+
+        db.Usuarios.create({
+            name: req.body.name,
+            email: req.body.mail,
+            born: req.body.born,
+            address: req.body.address,
+            interest: req.body.interest,
+            pass: bcrypt.hashSync(req.body.pass, 10),
+            image: req.file ? req.file.filename : ''
+        })
+            .then(user => {
+                res.redirect('/user/admin');
+            })
+            .catch(error=>{
+                console.log(error);
+                res.send(500);
+            })
+    },
     detail: (req,res) => {
 
         db.Usuarios.findByPk(req.params.id)
@@ -97,7 +129,7 @@ const usersController = {
             email: req.body.mail,
             born: req.body.born,
             address: req.body.address,
-            pass: req.body.pass,
+            pass: bcrypt.hashSync(req.body.pass, 10),
 			image: req.file ? req.file.filename : req.body.oldImage
         },
         {
