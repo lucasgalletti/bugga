@@ -154,11 +154,16 @@ const productController = {
     },
 
     search: (req, res) => {
-        db.Productos.findAll({where: {[Op.like] : `%${req.query.search}%`}})
+        db.Productos.findAll({
+            where: {
+                title:    {[Op.like]: `%${req.query.search}%`}
+            }
+        })
         .then(function(productos){
             res.render('admin', {productos})
         })
         .catch(error=> {
+            console.log(error)
             res.send(500);
         })
     },

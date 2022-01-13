@@ -3,6 +3,7 @@ const router = express.Router();
 const authorsController = require('../controllers/authorsController');
 
 router.get('/admin', authorsController.list);
+router.get('/search', authorsController.search);
 
 router.get('/create', authorsController.create);
 router.post('/', authorsController.store);

@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const { Op } = require('sequelize');
 
 const categorysController = {
 
@@ -13,6 +14,23 @@ const categorysController = {
                     res.send(500);
             })
     },
+
+    search: (req, res) => {
+        db.Categorias.findAll({
+            where: {
+                name:    {[Op.like]: `%${req.query.search}%`}
+            }
+        })
+        .then(function(categorias){
+            res.render('categorias', {categorias})
+        })
+        .catch(error=> {
+            console.log(error)
+            res.send(500);
+        })
+    },
+
+
     create: (req,res) => {
 
         db.Categorias.findByPk(req.params.id)

@@ -1,4 +1,6 @@
 const db = require('../database/models');
+const { Op } = require('sequelize');
+
 
 const authorsController = {
 
@@ -13,6 +15,22 @@ const authorsController = {
                     res.send(500);
             })
     },
+
+    search: (req, res) => {
+        db.Autores.findAll({
+            where: {
+                name:    {[Op.like]: `%${req.query.search}%`}
+            }
+        })
+        .then(function(autores){
+            res.render('autores', {autores})
+        })
+        .catch(error=> {
+            console.log(error)
+            res.send(500);
+        })
+    },
+
     create: (req,res) => {
 
         db.Autores.findByPk(req.params.id)

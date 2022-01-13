@@ -15,19 +15,8 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `author`
---
-
-DROP TABLE IF EXISTS `author`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `author` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE SCHEMA IF NOT EXISTS `bugga` DEFAULT CHARACTER SET utf8 ;
+USE `bugga` ;
 
 --
 -- Dumping data for table `author`
@@ -40,20 +29,6 @@ INSERT INTO `author` VALUES (1,'LEANDRO VESCO '),(2,'LOVEDAY TRINICK'),(3,'S. NA
 UNLOCK TABLES;
 
 --
--- Table structure for table `category`
---
-
-DROP TABLE IF EXISTS `category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `category`
 --
 
@@ -62,30 +37,6 @@ LOCK TABLES `category` WRITE;
 INSERT INTO `category` VALUES (1,'Turismo  '),(2,'Infantil y Juvenil'),(3,'Ficción y Literatura'),(4,'Politica'),(5,'Historia'),(6,'Programacion Y Lenguajes'),(7,'Computación En General'),(8,'Divulgación Científica'),(9,'Arte, Arquitectura y Diseño'),(10,'Derecho'),(11,'Economia'),(12,'Deportes y Recreación');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `id_author` int(11) NOT NULL,
-  `id_category` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `date_entry` date NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_e7a16b01-e593-4da3-a730-29825132e39c` (`id_author`),
-  KEY `FK_081d4a46-c241-418a-848b-20a2b599a3fe` (`id_category`),
-  CONSTRAINT `FK_081d4a46-c241-418a-848b-20a2b599a3fe` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`),
-  CONSTRAINT `FK_e7a16b01-e593-4da3-a730-29825132e39c` FOREIGN KEY (`id_author`) REFERENCES `author` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `products`
@@ -98,24 +49,13 @@ INSERT INTO `products` VALUES (1,'MAZE RUNNER EL PALACIO DE LOS CRANKS',18,2,199
 UNLOCK TABLES;
 
 --
--- Table structure for table `users`
+-- Dumping data for table `shop`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `born` date DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `interest` varchar(255) DEFAULT NULL,
-  `pass` varchar(255) NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `shop` WRITE;
+/*!40000 ALTER TABLE `shop` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shop` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping data for table `users`
@@ -140,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-12 14:43:52
+-- Dump completed on 2022-01-12 17:51:42

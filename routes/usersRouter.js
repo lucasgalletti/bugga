@@ -24,15 +24,22 @@ router.get('/register', guestMiddleware, usersController.register);
 router.post('/register', uploadProfImg.single('registerImg'), validateRegister, usersController.create);
 
 router.get('/admin', usersController.list);
+router.get('/search', usersController.search);
 
 router.get('/profile', loggedMiddleware, usersController.profile);
 router.get('/logout', usersController.destroyCookie);
 
+router.get('/login', guestMiddleware, usersController.login);
+router.post('/login', validateLogin, usersController.processLogin);
+
+router.get('/:id', usersController.detail);
+router.get('/edit/:id', usersController.edit);
+router.put('/:id', uploadProfImg.single('registerImg'), validateRegister, usersController.update);
+
 router.get('/delete/:id', usersController.delete);
 router.delete('/delete/:id', usersController.destroy);
 
-router.get('/login', guestMiddleware, usersController.login);
-router.post('/login', validateLogin, usersController.processLogin);
+
 
 router.get('/check', function(req,res){
     if (req.session.userLogin == undefined){
