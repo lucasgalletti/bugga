@@ -20,50 +20,51 @@
 
         <% novedad.forEach((nov) => { %>
         <article>
-          <a href="/products/<%=nov.id%>">
-          <img src="/images/<%=nov.image%>" alt="mundo">
-          <div class="articulo">
-            <div class="autor-favorito">
-              <h3><%=nov.name%></h3>
-              <i class="fas fa-heart"></i>
+          <form action="/products/carrito" method="post">
+          <a href="/products/<%=nov.id%>" name="prodID">
+            <img src="/images/<%=nov.image%>" alt="mundo" name="prodImage">
+            <div class="articulo">
+              <div class="autor-favorito">
+                <h3><%=nov.name%></h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="precio-descuento">
+                <p class="precio" name="prodPrice">$<%=toThousand(nov.price)%>
+                  <a href="/products/<%=nov.id%>"><i class="fas fa-info-circle info"></i></a>
+                </p>
+                <button type="submit" class="comprar">Comprar</button>
+              </div>
             </div>
-            <div class="precio-descuento">
-              <p class="precio">$<%=toThousand(nov.price)%>
-                <a href="/products/<%=nov.id%>"><i class="fas fa-info-circle info"></i></a>
-              </p>
-              <a href="#agregar" class="comprar">Comprar</a>
-            </div>
-          </div>
-        </a>
+          </a>
+         </form>
         </article>
         <% }) %>
-
-
       </section>
+
       <p>¡Los más elegidos en Bugga!</p>
-
       <section>
-        <% elegidos.forEach((elegido) => { %>
+      <% elegidos.forEach((elegido) => { %>
         <article>
-          <a href="/products/<%=elegido.id%>">
-          <img src="/images/<%=elegido.image%>" alt="mundo">
-          <div class="articulo">
-            <div class="autor-favorito">
-              <h3><%=elegido.name%></h3>
-              <i class="fas fa-heart"></i>
+          <form action="/products/carrito" method="post">
+          <a href="/products/<%=elegido.id%>" name="prodID">
+            <img src="/images/<%=elegido.image%>" alt="mundo" name="prodImage">
+            <div class="articulo">
+              <div class="autor-favorito">
+                <h3><%=elegido.name%></h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="precio-descuento">
+                <p class="precio" name="prodPrice">$<%=toThousand(elegido.price)%>
+                  <a href="/products/<%=elegido.id%>"><i class="fas fa-info-circle info"></i></a>
+                </p>
+                <button type="submit" class="comprar">Comprar</button>
+              </div>
             </div>
-            <div class="precio-descuento">
-              <p class="precio">$<%=toThousand(elegido.price)%>
-                <a href="/products/<%=elegido.id%>"><i class="fas fa-info-circle info"></i></a>
-              </p>
-              <a href="#agregar" class="comprar">Agregar</a>
-            </div>
-          </div>
-        </a>
+          </a>
+         </form>
         </article>
         <% }) %>
-
-
       </section>
+
     </main>
 <%- include('./partials/footer') %>
