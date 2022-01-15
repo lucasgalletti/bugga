@@ -16,7 +16,7 @@ Bugga es un espacio pensado para todos los amantes de la lectura y del diseño
 
 # Grupo
 
-El proyecto será llevado a cabo por la liga de los _webprogramadores_ compuesta por **Cami AT**, como la emperatriz del reino Front, el archienemigo del mundo gris, nuestro diseñador de la galaxia UI/UX **Santiago S.** y los gladiadores del back world, **JuL LuG**. Juntos enfrentan cualquier desafío en el universo web. 
+El proyecto será llevado a cabo por la liga de los _webprogramadores_ compuesta por **Luc OT**, como el príncipe del reino Front, el archienemigo del mundo gris, nuestro diseñador de la galaxia UI/UX **Esteban DN.** y el gladiador del back world, **LuG**. Juntos enfrentan cualquier desafío en el universo web. 
 
 ---
 
