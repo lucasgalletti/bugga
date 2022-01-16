@@ -71,7 +71,7 @@ https://app.moqups.com/64LtLIwfPk/view/page/a3ae151f4
 
 # Trello
 
-https://trello.com/b/VGiMBD6B/grupo-5
+https://trello.com/b/sXYywEqI/grupo-14
 
 
 
