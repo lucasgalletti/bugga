@@ -15,10 +15,11 @@ const validateRegister = [
     body('mail').trim().notEmpty().withMessage('* Ingresá tu mail').bail()
     .isEmail().withMessage('* Ingresá un e-mail válido').bail().normalizeEmail(),
     body('pass').notEmpty().withMessage('* Ingresá una contraseña').bail().withMessage('La contraseña debe contener como mínimo 6 caracteres')
-    .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres')
+    .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail()
 ];
 const validateLogin = [
-    body('mail').notEmpty().withMessage('* Ingresá tu mail').bail().isEmail().withMessage('* Ingresá un e-mail válido'),
+    body('mail').notEmpty().withMessage('* Ingresá tu mail').bail()
+    .isEmail().withMessage('* Ingresá un e-mail válido'),
     body('pass').notEmpty().withMessage('* Ingresá una contraseña')
 ];
 
