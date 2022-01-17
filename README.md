@@ -49,10 +49,6 @@ https://bookshop.org/
 Seleccionado por el diseño
 
 
-https://www.staples.com/ 
-
-Seleccionado por el carrito de compras y su navegabilidad general
-
 ---
 
 # Wireframe
