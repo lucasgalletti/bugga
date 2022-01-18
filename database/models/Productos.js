@@ -55,6 +55,10 @@ module.exports = (sequelize, dataTypes) => {
             as: 'autores',
             foreignKey: 'id_author'
         });
+            Productos.hasMany(models.Carrito, {
+            as: 'carrito',
+            foreignKey: 'id_name'
+        });
 
     };
 

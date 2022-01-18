@@ -1,16 +1,44 @@
-<%- include('./partials/head', {title: 'Detalle: ' + productos.name}) %>
+<%- include('./partials/head', {title: 'Detalle: ' + productos.title}) %>
 
 
 <%- include('./partials/headerNavbar') %>
 
 <div class="products-wrapper">
   <div class="product-detail">
+    <form action="/shop/adicionarAlCarrito" method="post">
     <div>
       <img src="/images/<%=productos.image%>" alt="product image" class="product-detail-img">
-      <h2 class="product-detail-description">Título: <%=productos.title%></h2>
-      <h3 class="product-detail-description">Autor: <%=productos.autores.name%></h3>
-      <h4 class="product-detail-title">Sinopsis: <%=productos.description%></h4>
     </div>
+    <div>
+      <!-- <label for="title">Título:</label>
+      <input type="text" name="title" value="">
+    </div>
+    <div>
+      <label for="author">Autor:</label>
+      <input type="hidden" name="authorId" value="">
+      <input type="text" name="author" value="">
+    </div>
+    <div>
+      <label for="description">Descripción:</label>
+      <input type="text" name="description" value="">
+    </div> -->
+
+      <h2 class="product-detail-description">Título: <%=productos.title%></h2>
+      <input type="hidden" name="authorId" value="<%= productos.autores.id %>">
+      <h3 class="product-detail-description">Autor: <%=productos.autores.name%></h3>
+      <h5 class="product-detail-title">Sinopsis: <%=productos.description%></h5>
+    <div>
+      <input type="hidden" name="productId" value="<%= productos.id%>">
+      <input type="hidden" name="price" value="<%= productos.price %> ">
+      <button class="btn btn-success" type="submit">AGREGAR AL CARRITO</button>
+    </div> 
+    <div>
+      <label for="cantidad">Cantidad</label>
+      <input  class="form-control" type="number" id="cantidad" name="qty" value="1">
+    </div> 
+    </form>
+
+
     <article class="product-detail-info">
 
       <p class="product-detail-price small">Precio:
@@ -26,12 +54,10 @@
           <p>Retiro gratis en locales del vendedor</p>
         </li>
       </ul>
-      <a href="/carrito" class="comprar">COMPRAR</a>
-      <br><br>
-      
-      <!-- <a href="/products/edit/<%=productos.id%>" class="action-button edit"><button class="comprar">EDITAR</button></a>
-      <a href="/products/delete/<%=productos.id%>"><button type="submit" class="action-button delete comprar">ELIMINAR</button></a> -->
+ 
 
+      <!-- <a href="/carrito" class="comprar">COMPRAR</a> -->
+      <!-- <br><br> -->
     </article>
   </div>
 </div>
