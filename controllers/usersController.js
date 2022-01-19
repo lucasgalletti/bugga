@@ -161,7 +161,7 @@ const usersController = {
             }) 
 
             let userLog = [];
-            if (user.email == req.body.mail  && bcrypt.compareSync(req.body.pass, user.pass)) {
+            if (user.email == req.body.mail && bcrypt.compareSync(req.body.pass, user.pass)) {
                     userLog = user;
             }
 

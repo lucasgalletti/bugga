@@ -1,7 +1,6 @@
 window.onload = function() {
     let password = document.querySelector('#pass');
     let email = document.querySelector('#mail');
-    let button = document.querySelector('#button');
     let form = document.querySelector('.form'); 
 
 
@@ -10,12 +9,16 @@ window.onload = function() {
         let errores = [];
         
         if(password.value.length < 1 ){
-            errores.push('Completar el campo de password');
+            errores.push('* Completar el campo de password');
+            password.style.backgroundColor = '#f98686';
         }
 
         if(email.value.length < 1 ){
-            errores.push('Completar el campo de email');
+            errores.push('* Completar el campo de email');
+            email.style.backgroundColor = '#f98686';
         }
+
+
 
         if (errores.length > 0) {
 
@@ -24,7 +27,7 @@ window.onload = function() {
             let ulErrores = document.querySelector('.erroresFront ul');
             ulErrores.style.color = 'red';
 
-            
+            ulErrores.innerHTML = [];
             for(let i = 0; i<errores.length; i++){
                 ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
             }
