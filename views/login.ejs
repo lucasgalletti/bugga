@@ -27,9 +27,19 @@
                     %> 
             </div> 
             <div class="remember">
-            <input type="checkbox" name="recordar"><label for="recordar">Recordar</label>
+                <input type="checkbox" name="recordar"><label for="recordar">Recordar</label>
             </div>   
-            <button type="submit" style="cursor: pointer;">Enviar</button>
+
+
+            <div class = "erroresFront">
+                <ul>
+                    
+                </ul>
+            </div>
+
+            <button type="submit" id="button" style="cursor: pointer;">Enviar</button>
+
+
 
         </form>
 
@@ -38,6 +48,6 @@
 
     <%- include('./partials/footer') %>
 
-
+        <script src="/js/login.js"> </script>
     </body>
 </html>
