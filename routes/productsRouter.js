@@ -8,7 +8,7 @@ const { body } = require('express-validator');
 const validateProductForms = [
     body('title').trim().notEmpty().withMessage('* Agregá un nombre al producto').bail()
     .isLength({min: 5}).withMessage('* Agregá un nombre válido').bail(),
-    body('sinopsis').trim().notEmpty().withMessage('* Agregá una sinopsis').bail()
+    body('Sinopsis').trim().notEmpty().withMessage('* Agregá una sinopsis').bail()
     .isLength({min: 20}).withMessage('* Debe tener al menos 20 caracteres').bail()
 ]
 

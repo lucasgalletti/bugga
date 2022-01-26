@@ -9,6 +9,12 @@
     <form action="/products/<%= productos.id%>?_method=put" class="altaProd" method="POST" enctype="multipart/form-data">
         <label for="name">Título del Libro</label>
         <input type="text" id="name" name="title" placeholder="Ej: The Lord of the Rings" required minlength="2" value="<%= productos.title %>">
+
+        <% if (locals.errors && errors.title) { %>
+            <div class="mje-error">
+                <%= errors.title.msg %>
+            </div>
+        <% } %>
         
         <label for="author">Autor</label>
         <select name="author" id="autor">
@@ -36,6 +42,12 @@
         
         <label for="Sinopsis">Sinopsis</label>
         <textarea name="description" id="Sinopsys" required minlength="2"><%= productos.description %></textarea>
+
+        <% if (locals.errors && errors.Sinopsis) { %>
+            <div class="mje-error">
+                <%= errors.Sinopsis.msg %>
+            </div>
+        <% } %>
         
         <label for="date_entry">Fecha de ingreso</label>
         <input type="date" id="date_entry" name="date_entry" required minlength="2" value="">
