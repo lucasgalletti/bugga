@@ -52,6 +52,12 @@
         
         <label for="file">Seleccione una imágen</label>
         <input type="file" name="bookImg" id="file" class="imagen">
+
+        <% if (locals.errors && errors.file) { %>
+            <div class="mje-error">
+                <%= errors.file.msg %>
+            </div>
+        <% } %>
         
         <div style="display: flex; margin: 12px auto;">
             <button type="submit" class="buy-now-button">Guardar</button>

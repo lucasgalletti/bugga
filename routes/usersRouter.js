@@ -15,12 +15,29 @@ const validateRegister = [
     body('mail').trim().notEmpty().withMessage('* Ingresá tu mail').bail()
     .isEmail().withMessage('* Ingresá un e-mail válido').bail().normalizeEmail(),
     body('pass').notEmpty().withMessage('* Ingresá una contraseña').bail().withMessage('La contraseña debe contener como mínimo 6 caracteres')
-    .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail()
+    .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail(),
+    body('foto').notEmpty().withMessage('* Agregá una imágen').bail()
+    /* .custom(filename => {
+     let extension = filename.split('.').pop()
+       switch (extension) {
+         case '.jpg':
+             return '.jpg';
+         case '.jpeg':
+             return '.jpeg';
+         case  '.png':
+             return '.png';
+         case '.gif':
+             return '.gif';
+         default:
+             return false;
+     }
+     }).withMessage('* Tipo de archivo inválido') */
 ];
 const validateLogin = [
     body('mail').notEmpty().withMessage('* Ingresá tu mail').bail()
     .isEmail().withMessage('* Ingresá un e-mail válido'),
-    body('pass').notEmpty().withMessage('* Ingresá una contraseña')
+    body('pass').notEmpty().withMessage('* Ingresá una contraseña'),
+    body('file').notEmpty().withMessage('* Agregá una imágen').bail()
 ];
 
 

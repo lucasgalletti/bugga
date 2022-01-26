@@ -48,6 +48,12 @@
                 <input type="file" id="foto" name="registerImg">
             </div>
 
+            <% if (locals.errors && errors.foto) { %>
+                <div class="mje-error">
+                    <%= errors.foto.msg %>
+                </div>
+            <% } %>
+
             <div class="passR">
                 <input type="password" id="pass" name="pass" placeholder="Contraseña" value="<%= locals.old && old.pass ? old.pass : '' %>">
                     <% if (locals.errors && errors.pass) { %>
