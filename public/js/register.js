@@ -20,7 +20,14 @@ window.onload = function() {
             nombre.style.backgroundColor = '#f98686';
         }
 
-        if(email.value.length < 1 ){
+
+
+         //Validar el email - Expresiones Regulares https://www.w3schools.com/jsref/jsref_obj_regexp.asp       https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+        let reEmail  = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if(!reEmail.test(email.value)){
+            errores.push('* El email es inválido...');
+            email.style.backgroundColor = '#f98686';
+        } else if(email.value.length < 1 ){
             errores.push('* Completar el campo de email');
             email.style.backgroundColor = '#f98686';
         }
@@ -46,7 +53,14 @@ window.onload = function() {
             foto.style.backgroundColor = '#f98686';
         }
 
-        if(password.value.length < 1 ){
+
+        //Aquí valido el password haciendo uso de Expresiones Regulares
+        //Esta expresión regular valida como Mínimo seis caracteres, al menos una letra y un número:
+        let rePassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+        if(!rePassword.test(password.value)){
+            errores.push('* La contraseña como mínimo debe tener 8 caracteres, al menos una letra y un número');
+            password.style.backgroundColor = '#f98686';
+        } else if (password.value.length < 1 ){
             errores.push('* Completar el campo de password');
             password.style.backgroundColor = '#f98686';
         } else if (password.value.length < 8) {
@@ -54,8 +68,6 @@ window.onload = function() {
             password.style.backgroundColor = '#f98686';
         }
 
-        // errores.push('* Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial');
-        // errores.push('* Deberá ser válido');
         // errores.push('* No puede repetirse con los e-mails ya registrados');
 
 

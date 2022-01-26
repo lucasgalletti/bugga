@@ -15,8 +15,7 @@ window.onload = function() {
 
         let errores = [];
 
-        console.log('hola aca estoy dentro del form')
-        console.log(titulo.value)
+
         
         if(titulo.value.length < 1 ){
             errores.push('* Completar el campo de titulo');
@@ -45,7 +44,6 @@ window.onload = function() {
             errores.push('* El formato de la foto debe ser JPG, PNG, JPEG, o GIF');
             foto.style.backgroundColor = '#f98686';
         }
-
 
 
         if (errores.length > 0) {
