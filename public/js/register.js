@@ -2,7 +2,7 @@ window.onload = function() {
     let nombre = document.querySelector('#nombre');
     let email = document.querySelector('#mail');
     // let nacimiento = document.querySelector('#nacimiento');
-    let domicilio = document.querySelector('#domicilio');
+    // let domicilio = document.querySelector('#domicilio');
     // let foto = document.querySelector('#foto');
     let password = document.querySelector('#pass');    
     let form = document.querySelector('.form'); 
@@ -30,10 +30,10 @@ window.onload = function() {
         //     nacimiento.style.backgroundColor = '#f98686';
         // }
 
-        if(domicilio.value.length < 1 ){
-            errores.push('* Completar el campo de domicilio');
-            domicilio.style.backgroundColor = '#f98686';
-        }
+        // if(domicilio.value.length < 1 ){
+        //     errores.push('* Completar el campo de domicilio');
+        //     domicilio.style.backgroundColor = '#f98686';
+        // }
 
 
         // entensionImagen = foto.value.substring(foto.value.length-3,foto.value.length);

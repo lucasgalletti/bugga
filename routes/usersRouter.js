@@ -16,23 +16,19 @@ const validateRegister = [
     .isEmail().isLength({min: 2}).withMessage('* Ingresá un e-mail válido').bail().normalizeEmail(),
     body('pass').notEmpty().withMessage('* Ingresá una contraseña').bail().withMessage('La contraseña debe contener como mínimo 6 caracteres')
     .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail(),
-    // .notEmpty().withMessage('* Agregá una imágen').bail()
-    // body('registerImg')
-    // .custom(filename => {
-    //  let extension = filename.split('.').pop()
-    //    switch (extension) {
-    //      case '.jpg':
-    //          return '.jpg';
-    //      case '.jpeg':
-    //          return '.jpeg';
-    //      case  '.png':
-    //          return '.png';
-    //      case '.gif':
-    //          return '.gif';
-    //      default:
-    //          return false;
-    //  }
-    //  }).withMessage('* Solo jpg,  jpeg,  png o  gif') 
+    body('registerImg').custom((value,{req})=>{
+        let file=req.file
+        if (file) {
+            let fileExtension=path.extname(file.originalname)
+            let acceptedExtensions=[".jpg",".jpeg",".png",".gif"]
+            if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error ("Extensiones válidas JPG, JPEG, PNG o GIF");
+            }   
+        }
+        
+        return true
+    })  
+    
 ];
 const validateLogin = [
     body('mail').notEmpty().withMessage('* Ingresá tu mail').bail()
