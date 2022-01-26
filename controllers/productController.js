@@ -4,6 +4,7 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const { validationResult } = require('express-validator');
 
 const db = require('../database/models');
 const { Op } = require('sequelize');
@@ -44,7 +45,11 @@ const productController = {
 
     store: (req,res) => {
 
-		db.Productos.create({
+        const errors = validationResult(req);
+
+        if(errors.isEmpty()){
+
+            db.Productos.create({
             title: req.body.title,
             id_author: req.body.author,
             id_category: req.body.category,
@@ -60,6 +65,11 @@ const productController = {
                 console.log(error);
                 res.send(500);
             })
+        }
+
+        else{
+            res.render('agregarProducto', {errors: errors.mapped(), old: req.body});
+        }
     }, 
 
     detail: (req,res) => {
@@ -93,6 +103,10 @@ const productController = {
 
     update: (req,res) => {
 
+        const errors = validationResult(req);
+
+        if (errors.isEmpty()){
+
         db.Productos.update({
             title: req.body.title,
             id_author: req.body.author,
@@ -112,7 +126,11 @@ const productController = {
                 console.log(error);
                 res.send(500);
             })                              
+        }
 
+        else{
+            res.render('editarProducto', {errors: errors.mapped(), old: req.body});
+        }
     },
     delete: (req,res) => {
 

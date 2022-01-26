@@ -10,6 +10,12 @@
         
         <label for="title">Título del Libro</label>
         <input type="text" id="title" name="title" placeholder="Ej: The Lord of the Rings" >
+
+        <% if (locals.errors && errors.title) { %>
+            <div class="mje-error">
+                <%= errors.title.msg %>
+            </div>
+        <% } %>
         
         <label for="author">Autor</label>
         <select name="author" id="author">
@@ -34,11 +40,24 @@
         <label for="Sinopsis">Sinopsis</label>
         <textarea name="description" id="Sinopsis" ></textarea>
                 
+        <% if (locals.errors && errors.Sinopsis) { %>
+            <div class="mje-error">
+                <%= errors.Sinopsis.msg %>
+            </div>
+        <% } %>
+        
+                
         <label for="date_entry">Fecha de ingreso</label>
         <input type="date" id="date_entry" name="date_entry" required minlength="2" value="">
         
         <label for="file">Seleccione una imágen</label>
         <input type="file" name="bookImg" id="file" class="imagen">
+
+        <% if (locals.errors && errors.file) { %>
+            <div class="mje-error">
+                <%= errors.file.msg %>
+            </div>
+        <% } %>
         
         <div style="display: flex; margin: 12px auto;">
             <button type="submit" class="buy-now-button">Guardar</button>

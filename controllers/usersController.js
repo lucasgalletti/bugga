@@ -40,8 +40,7 @@ const usersController = {
     },
 
     storeRegister: async (req, res) => {
-        var ext = path.extname('req.file')
-        console.log(ext);
+
         const errors = validationResult(req);
   
         if (errors.isEmpty()){
@@ -168,7 +167,7 @@ const usersController = {
 
     processLogin: async (req, res) => {
         const errors = validationResult(req);
-
+        
         if (errors.isEmpty()){
 
         // chequeo si el usuario existe, sino lo importo
@@ -176,7 +175,7 @@ const usersController = {
             const user = await db.Usuarios.findOne({
                 where: {email: req.body.mail}
             }) 
-
+            console.log(user);
             let userLog = [];
             if (user.email == req.body.mail  && bcrypt.compareSync(req.body.pass, user.pass)) {
                 userLog = user;

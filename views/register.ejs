@@ -59,6 +59,12 @@
                 <% } %>
             </div>
 
+            <% if (locals.errors && errors.foto) { %>
+                <div class="mje-error">
+                    <%= errors.foto.msg %>
+                </div>
+            <% } %>
+
             <div class="passR">
                 <input type="password" id="pass" name="pass" placeholder="Contraseña" value="<%= locals.old && old.pass ? old.pass : '' %>">
                     <% if (locals.errors && errors.pass) { %>
@@ -66,6 +72,12 @@
                             <%= errors.pass.msg %>
                         </div>
                     <% } %>
+            </div>
+
+            <div class = "erroresFront">
+                <ul>
+                    
+                </ul>
             </div>
 
             <div class="botones">
@@ -78,6 +90,7 @@
 
         </form>
 
+        <script src="/js/register.js"> </script>
 
     </section>
 
