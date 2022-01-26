@@ -14,10 +14,16 @@
       
 </div>
 
-<form class="d-flex buscarProducto" action="/authors/search" method="GET">
-  <input class="form-control me-2" name="search" type="search" placeholder="Buscar autores" aria-label="Search">
+<form class="d-flex buscarProducto" id=form action="/authors/search" method="GET">
+  <input class="form-control me-2" id=buscar name="search" type="search" placeholder="Buscar autores" aria-label="Search">
   <button class="btn btn-outline-success" type="submit">Buscar</button>
 </form>
+
+<div class = "erroresFront">
+  <ul>
+      
+  </ul>
+</div>
 
 <table class="table table-hover">
     <thead>
@@ -38,4 +44,8 @@
     </tbody>
   </table>
 
+
+
   <%- include('./partials/footer') %>
+
+  <script src="/js/autores.js"> </script>
