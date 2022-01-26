@@ -4,13 +4,11 @@
 
 <%- include('./partials/headerNavbar') %>
 
-<div class="agregar"  style="margin-top: 150px; margin-left: 100px; ">
-  <p style="color: rgb(75 177 91); font-size: 15px; max-width: 100px; text-align: center; border: solid 3px rgb(75 177 91); border-radius: 10px;">Agregar Categoría</p>
-    <a href="/categorys/create">
-      
-      <img src="/images/addBook.png" alt="" style="max-width: 50px; margin-left: 20px; margin-top: 5px;">
-    </a>
-      
+
+<div class="addButton">
+  <a href="/products/create">
+    <img src="/images/addCategory.png" alt="addCategory" >
+  </a>
 </div>
 
 <form class="d-flex buscarProducto" action="/categorys/search">
@@ -26,12 +24,12 @@
         <th scope="col" class="abmCentrado">Eliminar</th>
       </tr>
     </thead>
-    <tbody class="abmTable">
+    <tbody class="abmTableRest">
         <% categorias.forEach((categoria) => { %>
       <tr>
         <td><%=categoria.name.toUpperCase()%></td>
         <td class="abmCentrado"><a href="/categorys/edit/<%=categoria.id%>"><i class="fas fa-edit"></i></a></td>
-        <td class="abmCentrado"><a href="/categorys/delete/<%=categoria.id%>"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></a></td>
+        <td class="abmCentrado"><a href="/categorys/delete/<%=categoria.id%>"><i class="fas fa-trash-alt" style="color: red;"></i></a></td>
       </tr>
       <% }) %> 
     </tbody>

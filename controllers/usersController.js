@@ -39,10 +39,25 @@ const usersController = {
         res.render('register', {interests});
     },
 
-    storeRegister: (req, res) => {
+    storeRegister: async (req, res) => {
+        var ext = path.extname('req.file')
+        console.log(ext);
         const errors = validationResult(req);
-
+  
         if (errors.isEmpty()){
+           
+            const user = await db.Usuarios.findOne({
+                where: {email: req.body.mail}
+            }) 
+
+            if (user) {
+
+                return res.render('register', {errors: {
+                    valida: {
+                        msg: 'Email ya registrado'
+                        }
+                    }, interests});
+            }else{
 
             db.Usuarios.create({
                 name: req.body.name,
@@ -54,16 +69,18 @@ const usersController = {
                 image: req.file ? req.file.filename : ''
             })
             .then(usuario => {
+                
                 res.redirect('/user/login');
             })
             .catch(error=>{
                 console.log(error);
                 res.send(500);
             })
-
+            }
         }else{
             res.render('register', {errors: errors.mapped(), old: req.body, interests});
         }
+
     },
 
     create: (req,res) => {
@@ -162,9 +179,11 @@ const usersController = {
 
             let userLog = [];
             if (user.email == req.body.mail  && bcrypt.compareSync(req.body.pass, user.pass)) {
-                    userLog = user;
+                userLog = user;
             }
 
+
+        
             if (userLog == ''){
                 return res.render('login', {errors: {
                     pass: {
