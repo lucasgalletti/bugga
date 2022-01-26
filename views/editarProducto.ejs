@@ -42,14 +42,24 @@
         
         <input type="hidden" name="oldImage" value="<%= productos.image %> ">
         <input type="file" name="bookImg" id="file" class="imagen">
+
+        <div class = "erroresFront">
+            <ul>
+
+            </ul>
+        </div>
         
         <div style="display: flex; margin: 12px auto;">
-        <button type="submit" class="buy-now-button">Guardar</button>
-        <a href="/products/admin" class="botonVolver" style="text-decoration: none; color: white;">Cancelar</a>
+            <button type="submit" class="buy-now-button">Guardar</button>
+            <a href="/products/admin" class="botonVolver" style="text-decoration: none; color: white;">Cancelar</a>
         </div>
+        
     </form>
+
+    <script src="/js/editarProducto.js"> </script>
 
 </main>
 
 
 <%- include('./partials/footer') %>
+

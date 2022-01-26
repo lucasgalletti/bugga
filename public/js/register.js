@@ -15,7 +15,7 @@ window.onload = function() {
         if(nombre.value.length < 1 ){
             errores.push('* Completar el campo de nombre');
             nombre.style.backgroundColor = '#f98686';
-        } else if (nombre.value.length < 3) {
+        } else if (nombre.value.length < 2) {
             errores.push('* El nombre debe tener al menos 2 caracteres');
             nombre.style.backgroundColor = '#f98686';
         }
@@ -49,12 +49,14 @@ window.onload = function() {
         if(password.value.length < 1 ){
             errores.push('* Completar el campo de password');
             password.style.backgroundColor = '#f98686';
-        } else if (password.value.length < 9) {
+        } else if (password.value.length < 8) {
             errores.push('* El nombre debe tener al menos 8 caracteres');
             password.style.backgroundColor = '#f98686';
         }
 
         // errores.push('* Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial');
+        // errores.push('* Deberá ser válido');
+        // errores.push('* No puede repetirse con los e-mails ya registrados');
 
 
         if (errores.length > 0) {
