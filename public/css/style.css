@@ -7,7 +7,7 @@
 a {
     text-decoration: none;
     color: black;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Luxurious Roman', cursive, 'Roboto', sans-serif;
 }
 
 li {
@@ -15,12 +15,14 @@ li {
 }
 
 p   {
-    font-size: 12px;
+    font-size: 15px;
+    font-family: 'Luxurious Roman', cursive, 'Roboto', sans-serif;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(255 255 191);
+    /* background-color: rgb(255 255 191); */
+    background-color: #C9C9EE;
 }
 
 /*Cabecera - Inicio*/
@@ -56,14 +58,17 @@ body {
 
 }
 
-.search button {
-    position: absolute;
-    padding: 5px;
-    top: 5px;
-    right: 5px;
-    border: none;
-    background-color: white;
+.searchBotton {    background-color: rgb(75 177 91);
+    color: rgb(255 255 191);
+    
+    transition: background-color 0.8s;
 }
+
+.searchBotton:hover {
+    background-color: rgb(255 255 191);
+    color: rgb(75 177 91);
+}
+
 
 .main-header-aviso-burguer {
     display: flex;
@@ -75,7 +80,7 @@ body {
     height: 30px;
     width: 30px;
     padding: 7px;
-    color: rgb(75 177 91);
+    color: #735290;
     border-radius: 3px;
  }
 
@@ -83,7 +88,7 @@ body {
     height: 30px;
     width: 30px;
     padding: 7px;
-    color: rgb(75 177 91);
+    color: #735290;
     border-radius: 3px;
  }
 
@@ -95,20 +100,21 @@ body {
 .banner {
     /* width: auto; */
     width: 90%;
-    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10px auto;
 
 }
 .navbarBugga {
-    background-color: rgb(75 177 91);
+    /* background-color: rgb(75 177 91); */
+    background-color: #735290;
     box-shadow: 0px 0px 10px rgb(100 100 100);
 }
 
 .nav-link:hover {
-    border: solid 1px rgb(255 255 191);
+    border-bottom: solid 1px rgb(255 255 191);
     color: rgb(255 255 191);
 }
 
@@ -117,12 +123,12 @@ body {
 }
 
 .dropdown-item:hover {
-    background-color: rgb(255 255 191);
-    color: rgb(75 177 91);
+    background-color: #C9C9EE;
+    color: #735290;
 }
 
 .dropdown-User {
-    background-color: rgb(75 177 91);  
+    background-color: #735290;  
 }
 
 .navbarBugga a {
@@ -135,7 +141,7 @@ body {
 }
 
 .hamburguer i {
-    color: rgb(75 177 91); 
+    color: #735290; 
 }
 /*Cabecera - Fin*/
 
@@ -153,7 +159,7 @@ section p {
 }
 
 main {
-    background-color: rgb(255 255 191);
+    background-color: #C9C9EE;
 
 }
 
@@ -164,7 +170,7 @@ main p {
 
 article img {
     width: 75%;
-    height: 70%;
+    height: 250px;
     margin-left: 13%;
     margin-top: 5%;
     box-shadow: 0px 0px 10px rgb(100 100 100);
@@ -232,12 +238,12 @@ section article h3 {
 }
 
 .autor-favorito i {
-    color: none;
-    transition: 1s background-color;
+    color: #C9C9EE;
+    transition: color 1s;
 }
 
 .autor-favorito i:hover {
-    color: rgb(75 177 91);
+    color: #735290;
 }
 
 .info {
@@ -246,31 +252,12 @@ section article h3 {
 }
 
 
-/* article .comprar {
-    font-size: 10px;
-    padding: 5px;
-    margin: 5px auto;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-    transition: 1s background-color;
-
-}
-
-article .comprar:hover {
-    border: none;
-    background-color: rgb(75 177 91);
-    color: white;
-} */
-
-
 
 /*main - fin*/
 
 /*detalle Producto - inicio*/
 
 .products-wrapper {
-    /* margin: 30px auto; */
     margin-top: 150px;
     text-align: center;
   }
@@ -280,7 +267,7 @@ article .comprar:hover {
 }
 
 .product-detail-description {
-    max-width: 200px;
+    max-width: 250px;
     margin: 10px auto;
     font-size: 15px;
 }
@@ -288,17 +275,31 @@ article .comprar:hover {
 .product-detail img {
     max-width: 250px;
     box-shadow: 0 0 10px rgb(100 100 100);
+
+}
+
+.qty {
+    margin: 10px auto;
+}
+
+.qty input {
+    max-width: 45px;
+    text-align: center;
+    margin: 5px auto;
+    -moz-appearance:textfield;  
+    
 }
 
 .product-detail-info {
-    margin: 10px auto;
+    background-color: white;
+    margin: 15px auto;  
     text-align: center;
     line-height: 20px;
     padding: 10px;
 }
 
-.actions-list {
-    margin-bottom: 10px;
+.actions-list li{
+    margin-left: -30px;
 }
 
 .actions-list i {
@@ -366,7 +367,7 @@ article .comprar:hover {
 
 /* Modificación de producto*/
 
-.agregar button {
+/* .agregar button {
     height: 55px;
     width: 90px;
     margin-bottom: 30px;
@@ -379,6 +380,22 @@ article .comprar:hover {
 }
 .agregar button:hover{
     background-color: rgb(75 200 91);
+} */
+
+.addButton {
+    margin-top: 150px; 
+    margin-left: 100px;
+}
+
+.addButton img {
+    width: 50px; 
+    margin-left: 20px; 
+    margin-top: 5px;
+    transition: width 1.5s;
+}
+
+.addButton img:hover {
+    width: 60px;
 }
 
 .buscarProducto{
@@ -386,15 +403,36 @@ article .comprar:hover {
     margin: 5px auto;
 }
 
-.abmTable {
+.abmTableProducts {
     line-height: 80px;
     text-align: left;
 }
 
-.abmTable i {
-    color: rgb(75 177 91); 
-    font-size: 20px;
+.abmTableRest {
+    line-height: 35px;
+    text-align: left;
 }
+
+.abmTableProducts i {
+    color: #735290; 
+    font-size: 20px;
+    transition: font-size 0.5s;
+}
+
+.abmTableRest i {
+    color: #735290; 
+    font-size: 20px;
+    transition: font-size 0.5s;
+}
+
+.abmTableProducts i:hover {
+    font-size: 27px;
+}
+
+.abmTableRest i:hover {
+    font-size: 25px;
+}
+
 
 .abmCentrado {
     text-align: center;
@@ -423,7 +461,8 @@ article .comprar:hover {
     text-align: center;
     padding: 2px;
     color: white;
-    background-color: rgb(226, 26, 26);;
+    background-color: rgb(226, 26, 26);
+    font-family: 'Roboto', sans-serif;
     border-radius: 5px;
     border-style: none;
     transition: background-color 1s;
@@ -434,6 +473,19 @@ article .comprar:hover {
 .botonVolver:hover{
     background-color:  rgb(236, 76, 2);
 }
+
+.botonCancelar {
+    height: 35px;
+    width: 75px; 
+    margin-left: 10px;
+    text-align: center;
+    padding: 2px;
+    color: white;
+    background-color: rgb(75 200 91);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    border-style: none;
+ }
 
 .editando {
     margin-top: 150px;
@@ -459,14 +511,15 @@ article .comprar:hover {
 
 .resumen {
     display: none;
+
 }
 
 .detalle-compra{
+    margin: 150px auto 0px auto;
     border: 1px solid grey;
     border-collapse: collapse; 
-    width: 90%; 
-    margin: 5px auto;
 }
+
 
 .detalle-resumen {
     border: 1px solid grey; 
@@ -478,17 +531,19 @@ article .comprar:hover {
 }
 
 .opciones-carrito {
-    height: 50px; 
-    margin: 15px auto; 
-    width: 100%; 
     display: flex; 
     justify-content: space-around; 
     align-items: center;
+    height: 50px; 
+    margin: 15px auto ; 
+    width: 100%; 
 }
 
 .opciones-carrito button {
-    height: 30px; 
+    height: 60px; 
+    width: 100px;
     padding: 5px; 
+    font-family: 'Roboto';
     margin-top: 5px;
     color: white;
     background-color: rgb(75 177 91);
@@ -501,17 +556,26 @@ article .comprar:hover {
     background-color: rgb(75 200 91);
 }
 
-.cupon {
+.resto-compra {
+    margin-left: 100px;
+    margin-top: 30px;
+    width: 300px;
+   
+}
+
+.cupon, .envio{
     width: 80%;
     padding: 5px;
-    margin: 5px auto;
-    height: 200px;
+    margin: 15px auto;
+    height: 170px;
     text-align: center;
-    border:dashed 1px lightsalmon; 
+    border-radius: 10px;
+    background-color: white;
 }
 
 .cupon input {
     border-style: none;
+    background-color: #C9C9EE;
     height: 30px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -521,7 +585,7 @@ article .comprar:hover {
 .cupon button {
     height: 30px; 
     padding: 5px; 
-    margin-top: 5px;
+    margin-top: 15px;
     color: white;
     background-color: rgb(75 177 91);
     border-radius: 5px;
@@ -533,16 +597,12 @@ article .comprar:hover {
     background-color: rgb(75 200 91);
 }
 .envio {
-    width: 80%;
-    padding: 5px;
-    margin: 5px auto;
-    height: 200px;
-    text-align: center;
-    border:dashed 1px lightsalmon; 
+    height: 225px;
 }
 
 .envio select {
     border-style: none;
+    background-color: #C9C9EE;
     height: 30px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -552,6 +612,7 @@ article .comprar:hover {
 
 .envio input {
     border-style: none;
+    background-color: #C9C9EE;
     height: 30px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -561,7 +622,7 @@ article .comprar:hover {
 .envio button {
     height: 30px; 
     padding: 5px; 
-    margin-top: 5px;
+    margin-top: 15px;
     color: white;
     background-color: rgb(75 177 91);
     border-radius: 5px;
@@ -576,10 +637,10 @@ article .comprar:hover {
 .total {
     width: 80%;
     padding: 5px;
-    margin: 5px auto;
+    margin: 15px auto;
     margin-bottom: 30px;
     text-align: left;
-    height: 200px;
+    height: 250px;
 }
 
 .total p{
@@ -588,7 +649,7 @@ article .comprar:hover {
 .total button {
     height: 30px; 
     padding: 5px; 
-    margin: 5px auto;
+    margin: 15px auto;
     color: white;
     background-color: rgb(75 177 91);
     border-radius: 5px;
@@ -831,6 +892,7 @@ article .comprar:hover {
 footer {
     background-color: #ebebeb;
     padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     margin: -10px auto;
@@ -849,7 +911,7 @@ footer i{
     color: rgb(75 177 91);
     font-size: 1.3em;
     margin-top: 13px;
-    min-width: 25px;
+    min-width: 20px;
 }
 
 footer h3 {
@@ -862,11 +924,11 @@ footer p {
    margin: 2px;
    color: #666;
    font-size: 12px;
-   margin: 15px 35px ;
+   margin: 15px 15px ;
 
 }
 
-.central, .seguridad, .mail {
+.address, .phone, .mail {
     display: flex;
     justify-content: flex-start;
     text-align: center;
@@ -875,12 +937,15 @@ footer p {
 .credito {
     display: flex;
     justify-content: space-around;
+    align-content: center;
     max-width: 150px;
-    margin: 5px auto;
+    height: 15px;
+    margin: 15px auto;
 }
 
 .credito i {
     margin: 10px;
+    margin-top: -5px;
 }
 
 .copy {
@@ -954,7 +1019,7 @@ footer p {
 
     .product-detail-info {
         width: initial;
-        max-width: 400px;
+        max-width: 70%;
 
     }
 
@@ -987,9 +1052,7 @@ footer p {
         display: none;
     }
     
-    .resumen {
-        display: table-cell;
-    }
+
 
     .detalle-resumen {
         display: none;
@@ -1005,11 +1068,81 @@ footer p {
     .total h3 {
         font-size: 13px;
     }
+
+    .products-wrapper {
+        text-align: center;
+      }
+     
+    .product-detail {
+        display: flex;
+        flex-direction: column ;
+        margin: 10px;
+    }
+    
+    .detalleProducto {
+        display: flex;
+        margin-left: 25px;
+    }
+
+    .description {
+        margin-left: 50px;
+        text-align: left;
+    }
+
+    .qtyBuy {
+        display: flex;
+        align-items: center;
+    }
+
+    .qty {
+        display: flex;
+        margin: 0px;
+        align-items: center;
+        margin-right: 15px;
+    }
+    
+    .qty input {
+        max-width: 45px;
+        text-align: center;
+        margin-left: 7px;
+        -moz-appearance: textfield;
+
+    }
+
+    .product-detail-description {
+        max-width: 450px;
+        margin: 10px auto;
+        font-size: 15px;
+    }
+    
+    .product-detail img {
+        max-width: 250px;
+        box-shadow: 0 0 10px rgb(100 100 100);
+    }
+    
+    .product-detail-info {
+        min-width: 320px;
+        margin: 10px auto;
+        text-align: center;
+        line-height: 20px;
+        padding: 10px;
+    }
+    .detalle-compra {
+        max-width: 500px;
+
+    }
+    footer {
+        min-width: 600px;
+    }
 }
 
  /*Inicio MediaQuery Desktop*/
  @media (min-width: 768px){
  
+    .product-detail-info {
+        min-width: 320px;
+    }
+
      .aviso {
          align-self: flex-end;
      }
@@ -1026,10 +1159,12 @@ footer p {
      .precio, .cupon {
          font-size: 14px;   
      }
-
-     /* main {
-         margin-bottom: 100px;
-     } */
+     .oculto {
+         display: none;
+     }
+     .resumen {
+        display: table-cell;
+    }
 
      .login input {
         width: 30%;
@@ -1045,7 +1180,6 @@ footer p {
     }
 
     .detalle-compra{
-        margin-top: 150px;
         max-width: 1100px;
     }
     .resto-compra {

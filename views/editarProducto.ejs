@@ -8,7 +8,7 @@
     <p class="editando">Editando <%= productos.title %>  </p>
     <form action="/products/<%= productos.id%>?_method=put" class="altaProd" method="POST" enctype="multipart/form-data">
         <label for="name">Título del Libro</label>
-        <input type="text" id="name" name="title" placeholder="Ej: The Lord of the Rings" required minlength="2" value="<%= productos.title %>">
+        <input type="text" id="name" name="title" placeholder="Ej: The Lord of the Rings"  minlength="2" value="<%= productos.title %>">
 
         <% if (locals.errors && errors.title) { %>
             <div class="mje-error">
@@ -37,7 +37,7 @@
         </select>
         
         <label for="price">Precio</label>
-        <input type="text" id="price" name="price" placeholder="Ej: $150" required minlength="2" value="<%= toThousand(productos.price) %>">
+        <input type="text" id="price" name="price" placeholder="Ej: $150" minlength="2" value="<%= toThousand(productos.price) %>">
         
         
         <label for="Sinopsis">Sinopsis</label>
@@ -50,7 +50,7 @@
         <% } %>
         
         <label for="date_entry">Fecha de ingreso</label>
-        <input type="date" id="date_entry" name="date_entry" required minlength="2" value="">
+        <input type="date" id="date_entry" name="date_entry" minlength="2" value="">
         
         <input type="hidden" name="oldImage" value="<%= productos.image %> ">
         <input type="file" name="bookImg" id="file" class="imagen">
@@ -60,6 +60,12 @@
 
             </ul>
         </div>
+        
+        <% if (locals.errors && errors.file) { %>
+            <div class="mje-error">
+                <%= errors.file.msg %>
+            </div>
+        <% } %>
         
         <div style="display: flex; margin: 12px auto;">
             <button type="submit" class="buy-now-button">Guardar</button>

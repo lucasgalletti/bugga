@@ -1,3 +1,5 @@
+
+ 
 <body>
     <header>
       <nav class="navbar fixed-top navbar-expand-lg navbarBugga" >
@@ -39,12 +41,12 @@
                 </ul>
               </li>
               <% if(locals.isLogged){ %>
-                <li class="nav-item"><a class="nav-link" href="/products/carrito">Carrito</a></li>
+                <li class="nav-item"><a class="nav-link" href="/shop">Carrito</a></li>
               <% } %> 
             </ul>
             <form class="d-flex" action="/search" method="GET">
               <input class="form-control me-2" name="search" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
+              <button class="btn searchBotton" type="submit">Buscar</button>
             </form>
           </div>
         </div>

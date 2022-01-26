@@ -1,9 +1,9 @@
 window.onload = function() {
     let nombre = document.querySelector('#nombre');
     let email = document.querySelector('#mail');
-    let nacimiento = document.querySelector('#nacimiento');
+    // let nacimiento = document.querySelector('#nacimiento');
     let domicilio = document.querySelector('#domicilio');
-    let foto = document.querySelector('#foto');
+    // let foto = document.querySelector('#foto');
     let password = document.querySelector('#pass');    
     let form = document.querySelector('.form'); 
 
@@ -32,10 +32,10 @@ window.onload = function() {
             email.style.backgroundColor = '#f98686';
         }
 
-        if(nacimiento.value.length < 1 ){
-            errores.push('* Completar el campo de nacimiento');
-            nacimiento.style.backgroundColor = '#f98686';
-        }
+        // if(nacimiento.value.length < 1 ){
+        //     errores.push('* Completar el campo de nacimiento');
+        //     nacimiento.style.backgroundColor = '#f98686';
+        // }
 
         if(domicilio.value.length < 1 ){
             errores.push('* Completar el campo de domicilio');
@@ -43,15 +43,15 @@ window.onload = function() {
         }
 
 
-        entensionImagen = foto.value.substring(foto.value.length-3,foto.value.length);
-        browserType = 'jpg png jpeg gif';
-        if(foto.value.length < 1 ){
-            errores.push('* Cargar una foto');
-            foto.style.backgroundColor = '#f98686';
-        } else if(browserType.indexOf(entensionImagen) == -1) {
-            errores.push('* El formato de la foto debe ser JPG, PNG, JPEG, o GIF');
-            foto.style.backgroundColor = '#f98686';
-        }
+        // entensionImagen = foto.value.substring(foto.value.length-3,foto.value.length);
+        // browserType = 'jpg png jpeg gif';
+        // if(foto.value.length < 1 ){
+        //     errores.push('* Cargar una foto');
+        //     foto.style.backgroundColor = '#f98686';
+        // } else if(browserType.indexOf(entensionImagen) == -1) {
+        //     errores.push('* El formato de la foto debe ser JPG, PNG, JPEG, o GIF');
+        //     foto.style.backgroundColor = '#f98686';
+        // }
 
 
         //Aquí valido el password haciendo uso de Expresiones Regulares

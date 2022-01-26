@@ -6,7 +6,7 @@
 <main>
     <p class="editando">Editando <%= categorias.name %> </p>
     <div class="eliminandoForm">
-        <form action="/categorys/<%= categorias.id %>?_method=put " class="altaProd" method="POST" style="border: red solid 1px;">
+        <form action="/categorys/<%= categorias.id %>?_method=put " class="altaProd" method="POST">
             <label for="title">Categoría</label>
             <input type="text" id="name" name="name" placeholder="Ej: Infantiles" required minlength="2" value="<%= categorias.name %> ">
             <div style="display: flex; margin: 12px auto;">

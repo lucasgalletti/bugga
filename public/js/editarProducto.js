@@ -1,11 +1,8 @@
 window.onload = function() {
     let titulo = document.querySelector('#name');
     let autor = document.querySelector('#autor');
-    // let nacimiento = document.querySelector('#category');
     let price = document.querySelector('#price');
-    // let foto = document.querySelector('#Sinopsys');
-    // let password = document.querySelector('#date_entry');    
-    let foto = document.querySelector('#file');    
+    // let foto = document.querySelector('#file');    
     
     let form = document.querySelector('.altaProd'); 
 
@@ -35,15 +32,15 @@ window.onload = function() {
             price.style.backgroundColor = '#f98686';
         }
  
-        entensionImagen = foto.value.substring(foto.value.length-3,foto.value.length);
-        browserType = 'jpg png jpeg gif';
-        if(foto.value.length < 1 ){
-            errores.push('* Cargar una foto');
-            foto.style.backgroundColor = '#f98686';
-        } else if(browserType.indexOf(entensionImagen) == -1) {
-            errores.push('* El formato de la foto debe ser JPG, PNG, JPEG, o GIF');
-            foto.style.backgroundColor = '#f98686';
-        }
+        // entensionImagen = foto.value.substring(foto.value.length-3,foto.value.length);
+        // browserType = 'jpg png jpeg gif';
+        // if(foto.value.length < 1 ){
+        //     errores.push('* Cargar una foto');
+        //     foto.style.backgroundColor = '#f98686';
+        // } else if(browserType.indexOf(entensionImagen) == -1) {
+        //     errores.push('* El formato de la foto debe ser JPG, PNG, JPEG, o GIF');
+        //     foto.style.backgroundColor = '#f98686';
+        // }
 
 
         if (errores.length > 0) {

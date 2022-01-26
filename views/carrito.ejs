@@ -4,8 +4,47 @@
 <%- include('./partials/headerNavbar') %>
 
 <main>
+    <table class="table table-hover detalle-compra">
+    
+        <thead>
+          <tr style="background-color: #735290; height: 30px; color: white;">
+            <th scope="col" colspan="3">Detalle</th>
+            <th scope="col" class="abmCentrado resumen">Precio</th>
+            <th scope="col" class="abmCentrado">Cantidad</th>
+            <th scope="col" class="abmCentrado resumen">Subtotal</th>
+            <th scope="col" class="abmCentrado">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody class="abmTableProducts">
+            <% carrito.forEach(item => { %> 
+          <tr>
+            <td> <a href="/products/<%= item.id_name %> "><img src="/images/<%= item.productos.image %> " alt="book-image" style="max-width: 100px; padding: 5px; margin-left: 5px; text-align: left;"></a>
+                <p class="oculto">$ <%=item.total_purchase%></p>
+            </td>
 
-    <table class="detalle-compra">
+                
+
+            <div>
+                <td colspan="2"><%=item.productos.title%>
+                <br>
+                <%= item.autores.name %>
+                </td>
+            </div>
+            <td class="abmCentrado resumen" >$ <%=item.total_purchase%></td>
+            <td class="abmCentrado"><%= item.qty %></td>
+            <td class="abmCentrado resumen">$ <%=item.total_purchase * item.qty%></td>
+            <form action="/shop/borrarElementoCarrito" method="POST" class="mt-4">
+                <input type="hidden" name="itemId" value="<%= item.id %>">
+            <td class=""><button type="submit" name="Borrar" class="btn btn-danger " style="border: none; background-color: rgba(255, 255, 191, 0)"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></button></td>
+             </form>         
+        </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+
+
+
+    <!-- <table class="detalle-compra">
         <tr style="background-color: limegreen; height: 30px;">
             <th colspan="3">Detalle</th>
             <th class="resumen">Precio</th>
@@ -13,40 +52,56 @@
             <th class="resumen">Subtotal</th>
             <th class="resumen">Eliminar</th>
         </tr>
-        
+
         <tr style="text-align: center;">
-            <td style="text-align: left;  width: 100px;"><img src="/images/<%=products[0].image%>" alt="book-image" style="max-width: 100px; padding: 5px; margin-left: 5px; text-align: left;"></td>
+            <% carrito.forEach(item => { %> 
+            <td style="text-align: left;  width: 100px;"><a href="/products/<%= item.id_name %> "><img src="/images/<%= item.productos.image %> " alt="book-image" style="max-width: 100px; padding: 5px; margin-left: 5px; text-align: left;"></a></td>
             <td style="text-align: left; width: 200px;">
-                <%=products[0].name%>
+                <%=item.productos.title%> 
                 <br>
                 <br>
                 <br>
-                <%=products[0].autor%>
+                <%= item.autores.name %>  
                 <br><br>
-                <span class="detalle"> <%=(products[0].price)%></span>
+
+                <span class="detalle">$ <%=item.total_purchase%></span>
             </td>
             <td class="resumen"></td>
-            <td class="resumen"> <%=(products[0].price)%></td>
-            <td class="resumen"><input type="number" placeholder="1" style="width: 35px; height: 35px;"></td>
-            <td class="resumen"> <%=(products[0].price)%></td>
-            <td class="resumen"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></td>
+            <td class="resumen">$ <%=item.total_purchase%></td>
+            <td class="resumen"><%= item.qty %></td>
+            <td class="resumen">$ <%=item.total_purchase * item.qty%></td>
+            <form action="/shop/borrarElementoCarrito" method="POST" class="mt-4">
+                <input type="hidden" name="itemId" value="<%= item.id %>">
+            <td class="resumen"><button type="submit" class="btn btn-danger " style="border: none; background-color: rgba(255, 255, 191, 0)"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></button></td>
+             </form>
+            
+
         </tr>
-   
+        <% }) %> 
+    </table> -->
 
-    </table>
-
-    <div>
+    <!-- <div>
         <form action="" method="post" class="detalle-resumen">
            
-            <input type="number" placeholder="1" min="1" style="width: 35px; height: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;">
+            
+            <div class="abmCentrado">
+             <input type="number" placeholder="1" min="1" style="width: 35px; height: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;"> 
+            <p>Cantidad:
+                <br>
 
+            </p>
+            
+            </div>
             <button style="background-color: rgba(128, 128, 128, 0); border: 0px; cursor: pointer; margin-right: 65px; margin-top: 10px;margin-bottom: 10px;"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></button>
         </form>
-    </div>
+    </div> -->
 
     <div class="opciones-carrito">
-        <button action="/products/index">Seguir Comprando</button>
-        <button type="reset">Vaciar Carrito</button>
+        <a href="/products"><button>Seguir<br> Comprando</button></a>
+
+        <form action="/shop/deleteAll?_method=delete" method="POST">
+            <button type="submit">Vaciar <br>Carrito</button>
+        </form>
     </div>
 
 
