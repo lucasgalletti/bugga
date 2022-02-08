@@ -1,19 +1,18 @@
 import React, {useState,useEffect} from 'react';
-import Genre  from '../Categorias';
+import Categories  from './Categories';
 
 
-function GenresInDb() {
-    const [genres,setListGenres] = useState([]);
+function CategoriesInDb() {
+    const [categories,setListCategories] = useState([]);
     
     useEffect( () => {
-        // fetch('/api/genres')
-        fetch('../database/models/Categorias')
+        fetch('/api/categories')
         .then(response => {
             return response.json()
         })
-        .then(generos =>{
-            //console.log(generos.data);
-            setListGenres(generos.data)
+        .then(categorias =>{
+            console.log(categorias.data)
+            setListCategories(categorias.data)
         })
         .catch(error => console.log(error))
     },[])
@@ -23,16 +22,16 @@ function GenresInDb() {
         return (
             <React.Fragment>
                 {/*<!-- Categories in DB -->*/}
-                <div className="col-lg-6 mb-4">						
-                    <div className="card shadow mb-4">
+                <div className="col-lg-6 mb-4" style={{margin: "10px auto"}}>						
+                    <div className="card shadow mb-4" >
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800">Genres in Data Base</h6>
+                            <h6 className="m-0 font-weight-bold text-gray-800">Categories en Data Base</h6>
                         </div>
                         <div className="card-body">
                             <div className="row">
                                 {
-                                    genres.map((genre,index)=>{
-                                        return  <Genre  {...genre}  key={genre + index} />
+                                    categories.map((category,index)=>{
+                                        return  <Categories  {...category}  key={category + index} />
                                     })
                                 }
                             </div>
@@ -45,4 +44,4 @@ function GenresInDb() {
         
 
 }
-export default GenresInDb;
+export default CategoriesInDb;

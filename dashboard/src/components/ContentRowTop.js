@@ -1,14 +1,11 @@
-import React , {useRef} from 'react';
-import imagenFondo from '../assets/images/DESCONOCIDA BUENOS AIRES.png';
-import GenresInDb from './GenresInDb';
-import ContentRowMovies from './ContentRowMovies';
+import React from 'react';
+import imagenFondo from '../assets/images/laravel.png';
+import CategoriesInDb from './CategoriesInDb';
+import LastBookInDb from './LastBookInDb';
+import ContentRowBooks from './ContentRowBooks';
+import {Link, Routes, Route} from 'react-router-dom';
+
 function ContentRowTop(){
-	const parrafo = useRef();
-	function cambiarColor(){
-		//alert('Hola como vamos' + mensaje)
-		//console.log(parrafo)
-		parrafo.current.classList.toggle('bg-warning');
-	}
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -17,35 +14,40 @@ function ContentRowTop(){
 						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
 					</div>
 				
-					{/*<!-- Content Row Movies-->*/}
-					<ContentRowMovies />
-					{/*<!-- End movies in Data Base -->*/}
+					{/*<!-- Content Row Books-->*/}
+					<ContentRowBooks />
+					{/*<!-- End books in Data Base -->*/}
 					
 	
-					{/*<!-- Content Row Last Movie in Data Base -->*/}
+					{/*<!-- Content Row Last book in DB -->*/}
 					<div className="row">
-						{/*<!-- Last Movie in DB -->*/}
+						{/*<!-- Last book in DB -->*/}
 						<div className="col-lg-6 mb-4">
 							<div className="card shadow mb-4">
 								<div className="card-header py-3">
-									{/*<h5 onMouseOver={() => cambiarColor('Cursada que ya culmina')} className="m-0 font-weight-bold text-gray-800">Last movie in Data Base</h5>*/}
-									<h5 onMouseOver={cambiarColor} className="m-0 font-weight-bold text-gray-800">Ultimo Libro en la base de datos</h5>*
+									<h5 className="m-0 font-weight-bold text-gray-800">Ultimo Ingreso en Data Base</h5>
 								</div>
 								<div className="card-body">
 									<div className="text-center">
-										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
+										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={imagenFondo} alt="laravel"/>
 									</div>
-									<p ref={parrafo}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
+									<p>Aplicaciones robustas a gran escala con modelos de bases de datos, interfaces de usuario y pruebas automatizas.</p>
+									{/* <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Detalle</a> */}
+									<Link exact to='/LastBookInDb' className="btn btn-danger">
+										<span>Detalle</span> 
+                    				</Link>
+									<Routes>
+										<Route path='/LastBookInDb' exact element={<LastBookInDb/>} />
+									</Routes> 
 								</div>
 							</div>
 						</div>
-						{/*<!-- End content row last movie in Data Base -->*/}
+						{/*<!-- End content row last book in Data Base -->*/}
 
-						{/*<!-- Genres in DB -->*/}
-						<GenresInDb />
+						{/*<!-- Categorys in DB -->*/}
+						<CategoriesInDb />
 
-						{/*<!--End Genres In Db-->*/}		
+						{/*<!--End Categorys In Db-->*/}		
 					</div>
 				</div>
 				{/*<!--End Content Row Top-->*/}

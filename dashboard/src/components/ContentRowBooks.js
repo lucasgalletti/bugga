@@ -3,29 +3,29 @@ import SmallCard from './SmallCard';
 
 let productInDataBase = {
     color:   "primary",
-    titulo: "Movies in Data Base",
+    titulo: "Books in Data Base",
     valor: 21,
-    icono: "fas fa-film",
+    icono: "fas fa-book",
 }
 
 let amount ={
     color:   "success",
-    titulo: "Total awards",
-    valor: 79,
-    icono: "fas fa-award",
+    titulo: "Total categories",
+    valor: 12,
+    icono: "fas fa-list",
 }
 
 let user = {
     color:   "warning",
-    titulo: "Actors quantity",
-    valor: 49,
+    titulo: "Users quantity",
+    valor: 9,
     icono: "fas fa-user",
 }
 
 let cardProps = [productInDataBase,amount,user];
 
 
-function ContentRowTop(){
+function ContentRowTopBooks(){
     return (
         <React.Fragment>
         {/*<!-- Content Row -->*/}
@@ -39,4 +39,4 @@ function ContentRowTop(){
         </React.Fragment>
     )
 }
-export default ContentRowTop;
+export default ContentRowTopBooks;
