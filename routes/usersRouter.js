@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const { body } = require('express-validator');
+const { check } = require('express-validator');
 const usersController = require('../controllers/usersController');
 const uploadProfImg = require('../middleware/upload_profileImg');
 const guestMiddleware = require('../middleware/guestMiddleware');
@@ -10,13 +10,13 @@ const loggedMiddleware = require('../middleware/loggedMiddleware');
 
 //Validaciones
 const validateRegister = [
-    body('name').trim().notEmpty().withMessage('* Ingresá tu nombre').bail()
+    check('name').trim().notEmpty().withMessage('* Ingresá tu nombre').bail()
     .isLength({min: 2}).withMessage('* El usuario debe tener al menos 2 caracteres').bail(),
-    body('mail').trim().notEmpty().withMessage('* Ingresá tu mail').bail()
+    check('mail').trim().notEmpty().withMessage('* Ingresá tu mail').bail()
     .isEmail().isLength({min: 2}).withMessage('* Ingresá un e-mail válido').bail().normalizeEmail(),
-    body('pass').notEmpty().withMessage('* Ingresá una contraseña').bail().withMessage('La contraseña debe contener como mínimo 6 caracteres')
+    check('pass').notEmpty().withMessage('* Ingresá una contraseña').bail()
     .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail(),
-    body('registerImg').custom((value,{req})=>{
+    check('registerImg').custom((value,{req})=>{
         let file=req.file
         if (file) {
             let fileExtension=path.extname(file.originalname)
@@ -31,9 +31,9 @@ const validateRegister = [
     
 ];
 const validateLogin = [
-    body('mail').notEmpty().withMessage('* Ingresá tu mail').bail()
+    check('mail').notEmpty().withMessage('* Ingresá tu mail').bail()
     .isEmail().withMessage('* Ingresá un e-mail válido'),
-    body('pass').notEmpty().withMessage('* Ingresá una contraseña')
+    check('pass').notEmpty().withMessage('* Ingresá una contraseña')
 ];
 
 
@@ -54,7 +54,7 @@ router.post('/login', validateLogin, usersController.processLogin);
 
 router.get('/:id', usersController.detail);
 router.get('/edit/:id', usersController.edit);
-router.put('/:id', uploadProfImg.single('registerImg'), validateRegister, usersController.update);
+router.put('/:id', uploadProfImg.single('registerImg'), usersController.update);
 
 router.get('/delete/:id', usersController.delete);
 router.delete('/delete/:id', usersController.destroy);

@@ -6,26 +6,62 @@
 <main>
     <p class="editando">Agregando Usuario</p>
     <div class="eliminandoForm">
-        <form action="/user/create" class="altaProd" method="POST">
+        <form action="/user/create" class="altaProd" method="POST" id="form">
             <label for="title">Nombre de Usuario</label>
-            <input type="text" id="name" name="name" required minlength="2">
+            <input type="text" id="name" name="name" > <!--required minlength="2"-->
+            <% if (locals.errors && errors.name) { %>
+                <div class="mje-error">
+                    <%= errors.name.msg %>
+                </div>
+            <% } %>
             <label for="title">email</label>
             <input type="email" id="mail" placeholder="E-mail" name="mail">
+            <%  if (locals.errors && errors.mail){ %>
+                <div class="mje-error">
+                    <%= errors.mail.msg%>
+                </div>
+            <% } %>
+            <%  if (locals.errors && errors.valida){ %>
+                <div class="mje-error">
+                    <%= errors.valida.msg%>
+                </div>
+            <% } %>
             <label for="nacimiento">Fecha de Nacimiento</label>
             <input type="date" id="nacimiento" name="born" >
             <label for="domicilio">Domicilio</label>
             <input type="text" id="domicilio" placeholder="Domicilio (opcional)" name="address" >
             <label for="foto">Foto</label>
             <input type="file" id="foto" name="registerImg" style="border: none; line-height: 20px;">
+            <% if (locals.errors && errors.registerImg) { %>
+                <div class="mje-error">
+                    <%= errors.registerImg.msg %>
+                </div>
+            <% } %>
+            <% if (locals.errors && errors.foto) { %>
+                <div class="mje-error">
+                    <%= errors.foto.msg %>
+                </div>
+            <% } %>
             <input type="password" id="pass" name="pass" placeholder="Contraseña" style="margin-top: 25px;">
+            <% if (locals.errors && errors.pass) { %>
+                <div class="mje-error">
+                    <%= errors.pass.msg %>
+                </div>
+            <% } %>
+
             <div style="display: flex; margin: 12px auto;">
                 <button type="submit" class="buy-now-button">Guardar</button>
                 <a href="/user/admin" class="botonVolver" style="text-decoration: none; color: white;">Cancelar</a>
             </div>
+            <div class = "erroresFront">
+                <ul>
+                    
+                </ul>
+            </div>
         </form>
 
     </div>
-    
+    <script src="/js/agregarUsuario.js"> </script>
 </main>
 
 <%- include('./partials/footer') %>

@@ -6,9 +6,10 @@ function BooksList(props){
             <tr >
 				<td>{props.id}</td>
 				<td>{props.title}</td>
-				<td>{props.description}</td>
-                {/* <td>{props.awards}</td>
-				<td>{props.length}</td> */}
+                <td>{props.categorias.name}</td>
+                <td>{props.autores.name}</td>
+                {/* <td>{props.description}</td> */}
+				
 			</tr>
         </React.Fragment>
     )

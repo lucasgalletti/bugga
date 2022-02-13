@@ -17,45 +17,24 @@ function Books() {
         .catch(error => console.log(error))
     },[])
 
-// class Books extends Component{
-//     constructor(){
-//         super();
-//         this.state = {
-//             books : [] //estado inicial
-//         }
 
-//     }
-
-//     componentDidMount(){
-//         fetch('/api/products')
-//         .then(response => {
-//             return response.json()
-//         })
-//         .then(books =>{
-//             this.setState({
-//                 books: books.data
-//             })
-//         })
-//     }
-
-// 	render(){
     return(
-            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={{display: 'flex', flexDirection: 'column', margin: '10px auto'}}>
 				    {/*<!-- PRODUCTS LIST -->*/}
 					<h1 className="h3 mb-2 mt-2 text-gray-800" style={{textAlign: 'center'}}>All the books in the Database</h1>
 					
 					{/*<!-- DataTales Example -->*/}
-					<div className="card shadow mb-4" style={{margin: "10px auto"}}>
+					<div className="card shadow mb-4">
 						<div className="card-body">
 							<div className="table-responsive">
 								<table className="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
 									<thead className='table-primay'>
 										<tr>
                                             <th>Id</th>
-                                            <th>Titulo</th>
-                                            <th>Descripción</th>
-                                            {/* <th>Premios</th>
-                                            <th>Duración</th> */}
+                                            <th>Título</th>
+                                            <th>Categoría</th>
+                                            <th>Autor</th>
+                                            {/* <th>Descripción</th> */}
 										</tr>
 									</thead>
 									{/* <tfoot>

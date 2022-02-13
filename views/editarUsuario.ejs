@@ -6,7 +6,9 @@
 <main>
     <p class="editando">Editando usuario: <%= user.name %> </p>
     <div class="eliminandoForm">
-        <form action="/user/<%= user.id %>?_method=put" id=from class="altaProd" method="POST">
+
+        <form action="/user/<%= user.id %>?_method=put" id=from class="altaProd" method="POST"  enctype="multipart/form-data">
+            <img src="/images/profileImg/<%= user.image %>" alt="" style = "width: 100px; border-radius: 100px; margin: 5px auto; border: 2px solid #735290">
             <label for="title">Nombre del Usuario</label>
             <input type="text" id="name" name="name" required minlength="2" value="<%= user.name %>">
             <label for="title">email</label>
@@ -16,7 +18,8 @@
             <label for="domicilio">Domicilio</label>
             <input type="text" id="domicilio" placeholder="Domicilio (opcional)" name="address" value="<%= user.address %>">
             <label for="foto">Foto</label>
-            <input type="file" id="foto" name="registerImg" style="border: none; line-height: 20px;">
+            <input type="hidden" name="oldImage" value="<%= user.image %> ">
+            <input type="file" id="foto" name="registerImg" class="fotoFile" style="border: none; line-height: 20px; height: 35px;">
             <input type="password" id="pass" name="pass" placeholder="Contraseña" style="margin-top: 25px;">
 
 
@@ -32,7 +35,7 @@
             <ul>
                 
             </ul>
-          </div>
+        </div>
 
     </div>
     

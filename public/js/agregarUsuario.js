@@ -1,21 +1,30 @@
 window.onload = function() {
+    let form = document.querySelector('#form');
     let name = document.querySelector('#name');
+    let mail = document.querySelector('#mail');
     let password = document.querySelector('#pass'); 
-    let form = document.querySelector('#form'); 
-
 
     form.addEventListener('submit', function(event){
-        // event.preventDefault();
+
         let errores = [];
         
         if(name.value.length < 1 ){
             errores.push('* Completar el campo del nombre de usuario');
-            name.style.backgroundColor = '#f98686';
+            name.style.border = '1px solid red';
+        }else {
+            name.style.border = '1px solid green';
         }
-
+        if(mail.value.length < 1 ){
+            errores.push('* Completar el campo del email');
+            mail.style.border = '1px solid red';
+        }else {
+            name.style.border = '1px solid green';
+        }
         if(password.value.length < 1 ){
             errores.push('* Completar el campo del password');
-            password.style.backgroundColor = '#f98686';
+            password.style.border = '1px solid red';;
+        }else {
+            name.style.border = '1px solid green';
         }
 
         if (errores.length > 0) {
@@ -33,6 +42,9 @@ window.onload = function() {
         } else {
             form.submit();
         }
+    })
+
+
     })
     
 }

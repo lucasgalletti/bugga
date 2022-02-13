@@ -43,59 +43,6 @@
       </table>
 
 
-
-    <!-- <table class="detalle-compra">
-        <tr style="background-color: limegreen; height: 30px;">
-            <th colspan="3">Detalle</th>
-            <th class="resumen">Precio</th>
-            <th class="resumen">Cantidad</th>
-            <th class="resumen">Subtotal</th>
-            <th class="resumen">Eliminar</th>
-        </tr>
-
-        <tr style="text-align: center;">
-            <% carrito.forEach(item => { %> 
-            <td style="text-align: left;  width: 100px;"><a href="/products/<%= item.id_name %> "><img src="/images/<%= item.productos.image %> " alt="book-image" style="max-width: 100px; padding: 5px; margin-left: 5px; text-align: left;"></a></td>
-            <td style="text-align: left; width: 200px;">
-                <%=item.productos.title%> 
-                <br>
-                <br>
-                <br>
-                <%= item.autores.name %>  
-                <br><br>
-
-                <span class="detalle">$ <%=item.total_purchase%></span>
-            </td>
-            <td class="resumen"></td>
-            <td class="resumen">$ <%=item.total_purchase%></td>
-            <td class="resumen"><%= item.qty %></td>
-            <td class="resumen">$ <%=item.total_purchase * item.qty%></td>
-            <form action="/shop/borrarElementoCarrito" method="POST" class="mt-4">
-                <input type="hidden" name="itemId" value="<%= item.id %>">
-            <td class="resumen"><button type="submit" class="btn btn-danger " style="border: none; background-color: rgba(255, 255, 191, 0)"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></button></td>
-             </form>
-            
-
-        </tr>
-        <% }) %> 
-    </table> -->
-
-    <!-- <div>
-        <form action="" method="post" class="detalle-resumen">
-           
-            
-            <div class="abmCentrado">
-             <input type="number" placeholder="1" min="1" style="width: 35px; height: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;"> 
-            <p>Cantidad:
-                <br>
-
-            </p>
-            
-            </div>
-            <button style="background-color: rgba(128, 128, 128, 0); border: 0px; cursor: pointer; margin-right: 65px; margin-top: 10px;margin-bottom: 10px;"><i class="fas fa-trash-alt" style="color: red; font-size: 15px;"></i></button>
-        </form>
-    </div> -->
-
     <div class="opciones-carrito">
         <a href="/products"><button>Seguir<br> Comprando</button></a>
 
@@ -105,7 +52,7 @@
     </div>
 
 
-    <div class="resto-compra">
+    <!-- <div class="resto-compra">
         <form action="" method="post" class="cupon">
             <p>Descuento</p>
             <input type="text" placeholder="Cupón">
@@ -128,17 +75,17 @@
                 <br>
                 <button>Calcular</button>
         </form>
-    
-
+     -->
+     <!-- <div class="resto-compra" style="margin: 30px auto;">
         <div class="total">
             <h3>Detalle de Compra</h3>
             <p>Subtotal</p>
             <p>Descuento</p>
-            <p>Envío</p>
+            <p>Cant Libros</p>
             <p>Total</p>
             <button>Confirmar</button>
         </div>
-    </div>
+    </div> -->
 
 </main>
 

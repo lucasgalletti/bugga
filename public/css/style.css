@@ -535,7 +535,7 @@ section article h3 {
     justify-content: space-around; 
     align-items: center;
     height: 50px; 
-    margin: 15px auto ; 
+    margin: 35px auto ; 
     width: 100%; 
 }
 
@@ -557,9 +557,11 @@ section article h3 {
 }
 
 .resto-compra {
-    margin-left: 100px;
-    margin-top: 30px;
+    /* margin-left: 150px;
+    margin-top: 30px; */
     width: 300px;
+    background-color: white;
+    border-radius: 10px;
    
 }
 
@@ -640,7 +642,8 @@ section article h3 {
     margin: 15px auto;
     margin-bottom: 30px;
     text-align: left;
-    height: 250px;
+    /* height: 250px; */
+
 }
 
 .total p{
@@ -649,7 +652,7 @@ section article h3 {
 .total button {
     height: 30px; 
     padding: 5px; 
-    margin: 15px auto;
+    margin-left: 150px;
     color: white;
     background-color: rgb(75 177 91);
     border-radius: 5px;
@@ -841,6 +844,11 @@ section article h3 {
     padding: 5px;
 }
 
+.buttonEditUser button{
+    font-family: sans-serif;
+    width: 100px;
+    margin-left: 70px;
+}
 
 
 /*Profile - fin*/
@@ -1048,11 +1056,17 @@ footer p {
  /*Fin MediaQuery Mobile*/
 
  @media (min-width: 481px) {
+
+    .buttonEditUser button{
+        position: relative;
+        left: 250px;
+        bottom: 200px;
+    }
+
+
     .detalle {
         display: none;
     }
-    
-
 
     .detalle-resumen {
         display: none;
@@ -1113,6 +1127,7 @@ footer p {
         max-width: 450px;
         margin: 10px auto;
         font-size: 15px;
+        font-family: Roboto;
     }
     
     .product-detail img {

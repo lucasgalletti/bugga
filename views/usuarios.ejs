@@ -5,7 +5,7 @@
 <%- include('./partials/headerNavbar') %>
 
 <div class="addButton">
-  <a href="/products/create">
+  <a href="/user/create">
     <img src="/images/addUser.png" alt="addUser" >
   </a>
 </div>
@@ -44,7 +44,7 @@
       <% }) %> 
     </tbody>
   </table>
-  <input type="button" class="botonCancelar" onclick="history.back()" name="volver atrás" value="volver" style="margin-top: 15px; margin-bottom: 25px;">
+  <input type="button" class="botonCancelar" onclick="history.back()" name="volver atrás" value="volver" style="position: fixed; right: 50px; bottom: 50px;">
   <%- include('./partials/footer') %>
 
   <script src="/js/usuarios.js"> </script>

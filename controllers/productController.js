@@ -97,9 +97,11 @@ const productController = {
                     res.render('editarProducto', {productos, toThousand, autores, categorias})
                 })    
         })
-        .catch(error => res.send(error));
+        
+        .catch(error => {console.log(error);
+        res.send(error)});
 
-    },
+        },
 
     update: (req,res) => {
 
